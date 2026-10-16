@@ -441,6 +441,34 @@ FinOps: ✅ Implemented
 Evidence Pack: 🔒 Frozen
 Controlled Cleanup: ✅ Completed**
 
+## Cloud Run & Secret Manager Integration
+
+### Overview
+Deployed a Node.js service to Google Cloud Run and integrated it with Google Cloud Secret Manager as part of the Project LEDGER learning lab.
+
+### Implementation
+- **Service:** `service-b`
+- **Region:** `asia-south1` (Mumbai)
+- **Runtime:** Node.js 22
+- **Runtime identity:** Dedicated Cloud Run service account
+- **Secret:** `db-password`
+- **IAM:** Secret-level access using `roles/secretmanager.secretAccessor`
+
+### Validation
+- Cloud Run deployment completed successfully.
+- The service returned HTTP `200 OK` during validation.
+- The application reported a healthy status and successful secret access.
+- The secret value was not exposed in the HTTP response.
+- Authentication and ingress settings were documented separately.
+
+### Evidence
+See the [evidence directory](./evidence/) for deployment, runtime identity, IAM, application validation, authentication, and ingress screenshots.
+
+### Troubleshooting
+The initial Cloud Build attempts failed during the build step. Troubleshooting included checking build status and IAM bindings, granting the Cloud Run Builder role to the Compute Engine default service account, and successfully redeploying the service.
+
+*This is a self-directed, non-production learning lab.*
+
 
 
 
